@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+set -e
+
+show_help() {
+    echo ""
+    echo "Usage: ledokku { a | b | c |help|reinstall|upgrade|db|buildpack|status|stop|version}"
+    echo ""
+    echo "a               in place of ifconfig (usage => ledokku a)"
+    echo "b               in place of ls (usage => ledokku b)"
+    echo "c               in place of mkdir (usage => ledokku c <name of directory>)"
+    echo "help            Show this message"
+    echo "reinstall       Place Holder"
+    echo "upgrade         Place Holder"
+    echo "db              Place Holder"
+    echo "buildpack       Place Holder"
+    echo "status          Place Holder"
+    echo "stop            Place Holder"
+    echo "version         Place Holder"
+    exit 0
+}
+
+case $1 in
+
+        a)
+        ifconfig
+        
+        ;;
+
+        b)
+        ls
+        ;;
+
+        c)
+        mkdir $2
+        ;;
+
+        reinstall)
+        echo "This is a Place Holder"
+        ;;
+
+        upgrade)
+        echo "This is a Place Holder"
+        ;;
+
+        db)
+        echo "This is a Place Holder"
+        ;;
+
+        buildpack)
+        echo "This is a Place Holder"
+        ;;
+
+        status)
+        echo "This is a Place Holder"
+        ;;
+
+        stop)
+        echo "This is a Place Holder"
+        ;;
+
+        version)
+        echo "This is a Place Holder"
+        ;;
+
+        help)
+        show_help
+        ;;
+
+        *)
+        echo "Unknown command!"
+        show_help
+        exit 1
+        ;;
+
+esac
