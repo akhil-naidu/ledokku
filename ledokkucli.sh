@@ -26,13 +26,11 @@ function check(){
 
 function main(){
 
-    echo "${YELLOW}Downloading Script${END}"
-    wget https://raw.githubusercontent.com/akhil-naidu/ledokku/new/ledokku-cli/ledokku -o ledokku-tmp
+    echo "${YELLOW}Downloading and Installing ledokkuCLI${END}"
+    wget -O ledokku-tmp https://raw.githubusercontent.com/akhil-naidu/ledokku/new/ledokku-cli/ledokku
     wait
-    echo "${YELLOW}Installing Ledokku CLI${END}"
     sudo cat ledokku-tmp > /usr/local/bin/ledokku
     wait
-    echo "${YELLOW}Making Executable${END}"
     sudo chmod +x /usr/local/bin/ledokku
     wait
     rm -rf ledokku-tmp
