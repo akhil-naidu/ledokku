@@ -14,6 +14,15 @@ function define-colors {
   END="$(tput setaf 7)" # ${END
 }
 
+function check(){
+
+    # failsafe check
+    File=ledokku 
+    if [ -f "$File" ]; then  
+    echo "${YELLOW}Removing Old Files${END}"
+    rm -rf ledokku  
+    fi 
+}
 
 function main(){
 
@@ -23,20 +32,20 @@ function main(){
     echo "${YELLOW}Installing Ledokku CLI${END}"
     sudo cat ledokku > /usr/local/bin/ledokku
     wait
-    echo "${BLUE}Making Executable${END}"
+    echo "${YELLOW}Making Executable${END}"
     sudo chmod +x /usr/local/bin/ledokku
     wait
-    echo "${YELLOW}Getting Ready For Ledokku Terminal Command${END}"
-    exec $SHELL
+    rm -rf ledokku
     wait
-    # Cleaning up will ensure that the script always download the latest version(ledokkuCLI) without any conflicts in file name.
-    sudo rm -rf ledokku
+    echo -e "${YELLOW}Run ${BLUE}exec $ \bSHELL${YELLOW} in your Terminal to finish the installation${END}"
+    # Allowing user to run exec $SHELL would be better => It should never be a part of the script.
 }
 
 define-colors
+check
 if [ "$(whoami)" == "root" ] ; then
     main
 else
-    echo "${RED}Warning! ${YELLOW}Run the script with ${BLUE}root${YELLOW} permissions ${END}"
+    echo "${RED}Warning! ${YELLOW}Run the script with ${BLUE}root${YELLOW} permissions${END}"
     exit
 fi
