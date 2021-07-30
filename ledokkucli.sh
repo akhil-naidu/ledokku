@@ -27,7 +27,7 @@ function main(){
     sudo chmod +x /usr/local/bin/ledokku
     wait
     echo "${YELLOW}Getting Ready For Ledokku Terminal Command${END}"
-    sudo exec $SHELL
+    exec $SHELL
     wait
     # Cleaning up will ensure that the script always download the latest version(ledokkuCLI) without any conflicts in file name.
     sudo rm -rf ledokku
