@@ -17,25 +17,25 @@ function define-colors {
 function check(){
 
     # failsafe check
-    File=ledokku 
+    File=ledokku-tmp
     if [ -f "$File" ]; then  
     echo "${YELLOW}Removing Old Files${END}"
-    rm -rf ledokku  
+    rm -rf ledokku-tmp 
     fi 
 }
 
 function main(){
 
     echo "${YELLOW}Downloading Script${END}"
-    wget https://raw.githubusercontent.com/akhil-naidu/ledokku/new/ledokku-cli/ledokku
+    wget https://raw.githubusercontent.com/akhil-naidu/ledokku/new/ledokku-cli/ledokku -o ledokku-tmp
     wait
     echo "${YELLOW}Installing Ledokku CLI${END}"
-    sudo cat ledokku > /usr/local/bin/ledokku
+    sudo cat ledokku-tmp > /usr/local/bin/ledokku
     wait
     echo "${YELLOW}Making Executable${END}"
     sudo chmod +x /usr/local/bin/ledokku
     wait
-    rm -rf ledokku
+    rm -rf ledokku-tmp
     wait
     echo -e "${YELLOW}Run ${BLUE}exec $ \bSHELL${YELLOW} in your Terminal to finish the installation${END}"
     # Allowing user to run exec $SHELL would be better => It should never be a part of the script.
