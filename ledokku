@@ -4,11 +4,11 @@ set -e
 
 show_help() {
     echo ""
-    echo "Usage: ledokku { a | b | c |help|reinstall|upgrade|db|buildpack|status|stop|version}"
+    echo "Usage: ledokku { a | b | c <name>|help|reinstall|upgrade|db|buildpack|status|stop|version}"
     echo ""
     echo "a               in place of ifconfig (usage => ledokku a)"
     echo "b               in place of ls (usage => ledokku b)"
-    echo "c               in place of mkdir (usage => ledokku c <name of directory>)"
+    echo "c               in place of mkdir (usage => ledokku c <name>)"
     echo "help            Show this message"
     echo "reinstall       Place Holder"
     echo "upgrade         Place Holder"
